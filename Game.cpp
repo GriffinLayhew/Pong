@@ -1,6 +1,7 @@
 #include <SDL2/SDL.h>
 #include <iostream>
 
+//---------------------GAME CLASS------------------//
 class Game
 {
 
@@ -37,6 +38,9 @@ class Game
         int mWinner;
 };
 
+//--------------------------------------------------//
+//---------------------MAIN BEGINS------------------//
+//--------------------------------------------------//
 int main(int argc, char** argv) {
 
     Game MyGame;
@@ -52,6 +56,7 @@ int main(int argc, char** argv) {
     return 0;
 }
 
+//---------------------Game's Default Constructor------------------//
 Game::Game()
 {
     mWindow = nullptr;
@@ -69,6 +74,7 @@ Game::Game()
     mWinner = 0;
 }
 
+//---------------------Method to Intiailize Game Instance------------------//
 bool Game::Initialize()
 {
     int sdlResult = SDL_Init(SDL_INIT_VIDEO);
@@ -108,6 +114,7 @@ bool Game::Initialize()
     return true;
 }
 
+//---------------------Method to Shutdown and Destruct Game------------------//
 void Game::Shutdown()
 {
     if (mWinner == 1)
@@ -134,6 +141,7 @@ void Game::Shutdown()
     SDL_Quit();
 }
 
+//---------------------Method to Run Main Game Loop------------------//
 void Game::RunLoop()
 {
     while (mIsRunning)
@@ -144,6 +152,7 @@ void Game::RunLoop()
     }
 }
 
+//---------------------Method to Process User Input------------------//
 void Game::ProcessInput()
 {
     SDL_Event event;
@@ -186,6 +195,7 @@ void Game::ProcessInput()
     }
 }
 
+//---------------------Method to Update Al Objects in the Game------------------//
 void Game::UpdateGame()
 {
     while (!SDL_TICKS_PASSED(SDL_GetTicks(), mTicksCount + 16))
@@ -274,6 +284,7 @@ void Game::UpdateGame()
     }
 }
 
+//---------------------Method to Render Objects to Screen------------------//
 void Game::GenerateOutput()
 {
     SDL_SetRenderDrawColor(
