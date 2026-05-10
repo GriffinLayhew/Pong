@@ -4,3 +4,4 @@ Controls:
 
 NOTES:
     This is the classic game of Pong. This has been adpated from "Game Programming in C++" by Sanjay Madhav.
+    It has been adapted for 2 players. 
